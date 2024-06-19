@@ -23,17 +23,14 @@ func (srv *parserService) parse(data string) error {
 		return err
 	}
 	return nil
-
 }
 
 func parseCSV(data string) (*CSVData, error) {
-
 	reader := csv.NewReader(strings.NewReader(data))
 	records, err := reader.ReadAll()
 	if err != nil {
 		return nil, ErrInvalidFile
 	}
-
 	if len(records) == 0 {
 		return nil, ErrInvalidFile
 	}
